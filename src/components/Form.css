@@ -1,0 +1,44 @@
+.formWrapper{
+    width: 32%;
+    padding:40px 30px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.formHeader {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+.formInput input{
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+.formInput {
+    margin: 10px 0;
+}
+.inputLabel {
+    font-weight: 600;
+    padding: 0 0 4px 2px;
+}
+.formButton {
+    text-align: center;
+    padding-top: 28px;
+    cursor: pointer;
+}
+.submit {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+}
+.errorMsg {
+    color: red;
+    font-weight: 600;
+    font-size: 14px
+}

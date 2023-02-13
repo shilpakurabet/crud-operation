@@ -1,0 +1,39 @@
+/** @format */
+
+.table {
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+.tableHeader {
+  background-color: black;
+  color: #ffff;
+  font-weight: bold;
+}
+.tableHeader th {
+  font-size: 15px;
+  padding: 14px;
+}
+.tableBody td {
+  padding: 8px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.tableBody tr {
+  border: 1px solid lightslategray;
+}
+.table button {
+  border: none;
+  outline: none;
+  padding: 6px 14px;
+  font-weight: 600;
+  color: white;
+  margin: 0 4px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.edit {
+  background-color: royalblue;
+}
+.delete {
+  background-color: red;
+}
