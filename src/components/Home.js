@@ -2,20 +2,19 @@
 
 import React, { useState } from "react";
 import UserList from "./UserList";
-import AddUser from "./AddUser";
-import EditUser from "./EditUser";
+import Form from "./Form";
 const Home = () => {
   const [singleUser, setSingleUser] = useState("");
   const [edit, setEdit] = useState(false);
+
   return (
     <div className="wrapper">
-      {edit ? (
-        <EditUser edit={edit} singleUser={singleUser} />
-      ) : (
-        <AddUser edit={edit} />
-      )}
-
-      <UserList setSingleUser={setSingleUser} setEdit={setEdit} />
+      <Form edit={edit} singleUser={singleUser} />
+      <UserList
+        setSingleUser={setSingleUser}
+        setEdit={setEdit}
+        singleUser={singleUser}
+      />
     </div>
   );
 };

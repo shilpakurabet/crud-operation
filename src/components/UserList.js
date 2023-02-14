@@ -1,24 +1,14 @@
 /** @format */
 
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { deleteUser } from "./Redux/action";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUser, getAllUsers } from "./Redux/action";
 import "./UserList.css";
 const UserList = ({ setSingleUser, setEdit }) => {
   const dispatch = useDispatch();
-  const [userList, setUserList] = useState([]);
-
-  const getAllUsers = async () => {
-    const res = await axios.get(
-      "https://blue-journalist-bbrpv.ineuron.app:4000/users"
-    );
-    const result = await res.data.data;
-    setUserList(result);
-    console.log("data===========", result);
-  };
+  const data = useSelector((state) => state.Reducer.getAllUsers);
   useEffect(() => {
-    getAllUsers();
+    dispatch(getAllUsers());
   }, [dispatch]);
   return (
     <div>
@@ -33,7 +23,7 @@ const UserList = ({ setSingleUser, setEdit }) => {
           </tr>
         </thead>
         <tbody className="tableBody">
-          {userList?.map((data) => {
+          {data?.data?.map((data) => {
             return (
               <tr key={data._id}>
                 <td> {data.firstName} </td>
@@ -42,24 +32,21 @@ const UserList = ({ setSingleUser, setEdit }) => {
                 <td> {data.age}</td>
                 <td
                   onClick={() => {
-                    console.log("edit user", data);
                     setSingleUser(data);
-                  }}
-                >
+                  }}>
                   <button
                     className="edit"
                     onClick={() => {
                       setEdit(true);
-                    }}
-                  >
+                    }}>
                     Edit
                   </button>
                   <button
                     className="delete"
                     onClick={() => {
                       dispatch(deleteUser(data._id));
-                    }}
-                  >
+                      alert(`User deleted successfully...`);
+                    }}>
                     {" "}
                     Delete{" "}
                   </button>
